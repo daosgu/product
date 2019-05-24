@@ -1,0 +1,22 @@
+<div id="top">
+    <h1>Welcome to Product Managment</h1>
+
+    <a [routerLink]="['home']" (click) = "home = true">Home</a>
+    <a [routerLink]="['createProduct']" (click) = "home = false">Create Product</a>
+    <a [routerLink]="['productList']" (click) = "home = false">Product List</a>
+</div>
+
+<div id="home" *ngIf = "home; else showApp">
+    <h2>Home Page</h2>
+    <p>Welcome to Project Product Managment! Here we can manage a set of products. You are able to create products, remove old products, and edit products.</p>
+</div>
+<ng-template #showApp>
+    <router-outlet></router-outlet>
+</ng-template>
+
+
+
+
+<!-- <button [routerLink]="['createProduct']">Create Product</button>
+<button [routerLink]="['productList']">Product List</button>
+<button [routerLink]="['newHome']">Home</button> -->

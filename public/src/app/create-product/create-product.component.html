@@ -1,0 +1,27 @@
+<div id="formProduct">
+    <h1>{{ action }}</h1>
+    <p *ngFor = "let reg of errors | keyvalue" class="perror">
+        {{ reg.value.message }}
+    </p>
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><input type="text" name="title" id="title" maxlength="40" [(ngModel)] = "product.title">
+                <span>Price $</span>
+                <input type="number" min="1" style="width: 70px; text-align: right" name="price" id="title2" [(ngModel)] = "product.price">
+            </td>
+        </tr>
+        <tr>
+            <td>Url Image</td>
+            <td><input type="text" style="width: 310px" name="urlimage" id="title3" [(ngModel)] = "product.urlimage"></td>
+        </tr>
+    </table>
+    <button *ngIf = "(action) == 'Create a New Product'; else updateButton" class="btn" style="margin-left: 25%" (click) = "saveProduct()">Save</button>
+    <ng-template #updateButton>
+        <button *ngIf = "(action) == 'Update Product'; else deleteButton" class="btn" style="margin-left: 25%" (click) = "saveProduct()">Update</button>
+    </ng-template>
+    <ng-template #deleteButton>
+            <button class="btn" style="margin-left: 25%" (click) = "deleteProduct()">Delete</button>
+    </ng-template>
+    <button class="btn" [routerLink]="'/productList'">Cancel</button>
+</div>

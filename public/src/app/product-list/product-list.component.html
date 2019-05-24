@@ -1,0 +1,9 @@
+<div *ngFor = "let reg of products | keyvalue"> 
+    <img src="{{ reg.value.urlimage }}" alt="{{ reg.value.title }}">
+    <h2> {{ reg.value.title }} </h2>
+    <p> Price: USD ${{ reg.value.price }}</p>
+    <button name="btnEdit" style="margin-left: 20%" class="btn" routerLink="/product/edit/{{ reg.value._id }}">Edit</button>
+    <button class="btn" routerLink="/product/delete/{{ reg.value._id }}">Delete</button>
+    <!-- <button name="btnEdit" style="margin-left: 20%" class="btn" (click) = "editProduct(reg.value)" >Edit</button>
+    <button class="btn" (click) = "deleteProduct(reg.value._id)">Delete</button> -->
+</div>
